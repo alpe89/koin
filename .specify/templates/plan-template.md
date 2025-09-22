@@ -47,7 +47,11 @@
 ## Constitution Check
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- **I. Mission & Vision**: Does the feature align with Koin's mission of simple, fast, and motivating finance management?
+- **II. Core Architectural Principles**: Does the feature adhere to the monorepo structure, 12-Factor App methodology, and the 'Spaces Concept'?
+- **III. Technology Stack**: Does the feature use the approved technology stack (Fastify, React, PostgreSQL, Prisma, etc.)?
+- **IV. Comprehensive Testing Strategy**: Are unit, integration, and end-to-end tests planned for the feature?
+- **V. Core Epics**: Does the feature fit within one of the core epics (Transaction Management, User Authentication, etc.)?
 
 ## Project Structure
 
@@ -209,4 +213,4 @@ ios/ or android/
 - [ ] Complexity deviations documented
 
 ---
-*Based on Constitution v2.1.1 - See `/memory/constitution.md`*
+*Based on Constitution v1.0.0 - See `/memory/constitution.md`*
