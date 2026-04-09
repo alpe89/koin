@@ -13,6 +13,12 @@ This project uses a team of specialized subagents to deliver features. When buil
 5. **nodejs-backend-engineer** — Implement backend (Node.js, Fastify or NestJS, TypeScript).
 6. **devops-shipping-engineer** — Set up CI/CD, deployment, and infrastructure.
 
+### Tooling
+
+- **product-manager** and **ux-design-reviewer** must use the **Stitch MCP server** for all design and UI work — do not use Figma or any Figma-related skills/tools.
+- Stitch tools are available via `mcp__stitch__*` (e.g. `mcp__stitch__generate_screen_from_text`, `mcp__stitch__create_design_system`).
+- The project lives at: https://stitch.withgoogle.com/projects/10845020093989134005 — always load this project when doing design work.
+
 ### Ground rules
 
 - Always start with **product-manager** when deciding what to build — no implementation without requirements.
