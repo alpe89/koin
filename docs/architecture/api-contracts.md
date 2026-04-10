@@ -47,8 +47,9 @@ Google redirects here after authorization.
 1. Exchange `code` for Google tokens.
 2. Fetch user profile from Google (`sub`, `email`, `name`, `picture`).
 3. Upsert user by `google_sub`.
-4. Issue a signed RS256 JWT.
-5. Redirect to frontend with JWT in URL fragment (`/#token=<jwt>`). Frontend stores in memory / secure storage.
+4. **If new user:** create a personal group named `"<first_name>'s Group"`, add user as owner, seed group categories — all in a single DB transaction.
+5. Issue a signed RS256 JWT.
+6. Redirect to frontend with JWT in URL fragment (`/#token=<jwt>`). Frontend stores in memory / secure storage.
 
 **Response:** `302 Redirect` to frontend
 

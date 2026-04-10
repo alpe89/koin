@@ -54,7 +54,9 @@ The app is built by the founder for his wife — simplicity and reliability beat
 
 ### Creating & Managing Groups
 
-- Any authenticated user can create one or more spending groups.
+- On first login, a **personal group is automatically created** for every new user. There is no "no group" state — every user always belongs to at least one group.
+- The auto-created group is named after the user (e.g., "Alex's Group") and can be renamed.
+- Any authenticated user can create additional spending groups.
 - The creator becomes the owner automatically.
 - A group can be **private** (solo use) or **collaborative** (multiple members).
 - Groups have a name set at creation time.
@@ -171,14 +173,14 @@ No export functionality in v1 (no PDF, no CSV).
 
 ---
 
-## 11. Open Questions
+## 11. Resolved Design Decisions
 
-These must be resolved before the relevant features are built:
+Previously open questions — all resolved.
 
-1. **Invitation delivery** — How does an invited user receive their invitation? Email (requires an email sending service), in-app notification, or a shareable link?
-2. **Group deletion** — Can a group be deleted? What happens to its transaction history?
-3. **Voluntary group leaving** — Can a member leave a group? What happens to transactions they added?
-4. **Recurring rule ownership transfer** — If the creator of a recurring rule leaves the group, what happens to the rule and its future auto-fired transactions?
+1. **Invitation delivery** — Shareable link only. Owner generates a single-use link (48h expiry) and shares it via any channel (WhatsApp, iMessage, etc.). No email service required. See ADR-001.
+2. **Group deletion** — Not supported in v1. Soft-delete column added to schema for future use. See ADR-003.
+3. **Voluntary group leaving** — Not supported in v1. Only the owner can remove a member. Removed member's transactions stay; their recurring rules are deactivated. See ADR-002.
+4. **Recurring rule ownership transfer** — Rules are deactivated (not transferred) when the creator is removed. Owner manages cleanup manually.
 
 ---
 
