@@ -1,0 +1,24 @@
+{
+  "name": "@koin/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/server.ts",
+    "start": "bun run src/server.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "db:migrate": "bun run scripts/migrate.ts"
+  },
+  "dependencies": {
+    "@koin/shared": "workspace:*",
+    "fastify": "^5.2.1",
+    "@fastify/cors": "^10.0.2",
+    "zod": "^3.24.2",
+    "pg": "^8.13.3"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.11",
+    "typescript": "^5.8.3"
+  }
+}

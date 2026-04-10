@@ -36,3 +36,9 @@ coverage/
 # Misc
 *.tsbuildinfo
 .mcp.json
+
+# Bun
+bun.lockb
+
+# Vite
+.vite/

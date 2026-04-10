@@ -28,6 +28,46 @@ This project uses a team of specialized subagents to deliver features. When buil
 - Use `superpowers:dispatching-parallel-agents` when frontend and backend tasks are independent.
 - Use `superpowers:brainstorming` before any creative or feature work.
 
+## GitHub Issues & Workflow
+
+All work is driven by GitHub issues on the Koin project board. Use the `gh` CLI for all GitHub interactions — never use the API directly or guess URLs.
+
+- **List issues:** `gh issue list --repo alpe89/koin --label <label>`
+- **Read an issue:** `gh issue view <number> --repo alpe89/koin`
+- **List project board:** `gh project item-list 3 --owner alpe89`
+
+### Issue assignment by agent
+
+| Agent | Issues to pick up |
+|---|---|
+| **software-architect** | Issues labelled `infra` or `setup` |
+| **react-ts-engineer** | Issues labelled `frontend` |
+| **nodejs-backend-engineer** | Issues labelled `backend` |
+
+### Rules
+
+- Every agent **must read their assigned issue in full** (`gh issue view`) before starting work. The issue is the source of truth for scope and acceptance criteria.
+- **frontend and backend agents may work in parallel** when their issues have no shared dependencies — use `superpowers:dispatching-parallel-agents`.
+- **Only the product-manager may update GitHub issues and the project board** — status, labels, milestone, comments. Use `gh issue edit`, `gh issue comment`, and `gh project item-edit`. No other agent touches tickets directly.
+- The product-manager updates the roadmap accordingly after each report.
+
+### Agent reporting checkpoints
+
+Every implementing agent (react-ts-engineer, nodejs-backend-engineer, software-architect, devops-shipping-engineer) **must report to the product-manager** at exactly three moments:
+
+1. **On pickup** — as soon as the agent starts working on an issue, report: issue number, title, and what it plans to do.
+2. **On blocker** — if the agent cannot proceed (missing info, dependency not ready, ambiguous spec), stop immediately and report: issue number, what is blocked, and why. Do not guess or invent solutions.
+3. **On completion** — when an issue is done, report: issue number, what was built, any deviations from the spec, and whether the next issue in the milestone can be picked up immediately.
+
+The product-manager acts on each report by updating the GitHub issue and board accordingly. No agent should move to the next issue without sending a completion report first.
+
+### Frontend implementation standard
+
+- **react-ts-engineer must follow the Stitch screens** for every UI feature before writing code.
+- Stitch project: https://stitch.withgoogle.com/projects/10845020093989134005
+- The implemented UI must match the Stitch screens closely enough for the **ux-design-reviewer** to review against them after implementation.
+- Do not invent UI patterns or layouts not present in Stitch.
+
 ## Decision Documentation
 
 All significant decisions (product, architectural, design, infrastructure) **must be documented** in the `docs/` folder before implementation begins. This is the source of truth for why things were built the way they were.
