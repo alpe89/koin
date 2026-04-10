@@ -1,9 +1,6 @@
-import styles from './app.module.css'
-
-export default function App() {
-  return (
-    <div className={styles.app}>
-      <h1 className={styles.app__title}>Koin</h1>
-    </div>
-  )
-}
+/**
+ * App.tsx is intentionally empty.
+ * The application entry point is main.tsx which mounts <RouterProvider>.
+ * This file is kept as a placeholder for potential future use.
+ */
+export {}

@@ -1,0 +1,109 @@
+/* Koin design tokens — Solar Hearth palette */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Colour tokens */
+  --color-primary: #fdd73b;
+  --color-primary-on: #705d00;
+  --color-secondary: #a23f00;
+  --color-secondary-container: #fc7127;
+  --color-income: #2e7d32;
+  --color-surface: #f4fafd;
+  --color-surface-container: #e8eff1;
+  --color-on-surface: #161d1f;
+  --color-on-surface-muted: #4a5568;
+  --color-outline: #7e7761;
+  --color-outline-variant: #d0c6ad;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+
+  /* Border radius tokens */
+  --radius-full: 9999px;
+  --radius-card: 1rem;
+  --radius-input: 0.75rem;
+  --radius-sm: 0.5rem;
+
+  /* Typography tokens */
+  --text-display: 2rem;
+  --text-headline-l: 1.5rem;
+  --text-headline-m: 1.25rem;
+  --text-body-l: 1rem;
+  --text-body-m: 0.875rem;
+  --text-label: 0.75rem;
+
+  /* Avatar sizes */
+  --avatar-xs: 24px;
+  --avatar-sm: 32px;
+  --avatar-md: 40px;
+  --avatar-lg: 56px;
+
+  /* Font family */
+  --font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* Global resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  min-height: 100dvh;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--text-body-l);
+  color: var(--color-on-surface);
+  background-color: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Skip to content */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  padding: 8px 16px;
+  background: var(--color-on-surface);
+  color: var(--color-surface);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-body-m);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  top: 16px;
+}
+
+/* Visually hidden — accessible to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

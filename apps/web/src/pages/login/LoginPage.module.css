@@ -1,0 +1,104 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: 24px 20px;
+  background: var(--color-surface);
+  text-align: center;
+}
+
+.login__hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-bottom: 40px;
+}
+
+.login__logo {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-card);
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(22, 29, 31, 0.14);
+  margin-bottom: 8px;
+}
+
+.login__logo-icon {
+  font-size: 40px;
+  color: var(--color-primary-on);
+}
+
+.login__wordmark {
+  font-size: var(--text-headline-l);
+  font-weight: 700;
+  color: var(--color-on-surface);
+  letter-spacing: -0.02em;
+}
+
+.login__tagline {
+  font-size: var(--text-body-l);
+  color: var(--color-on-surface-muted);
+  max-width: 280px;
+}
+
+.login__cta {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Google-branded sign-in button following Google's identity guidelines */
+.login__google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 24px;
+  min-height: 52px;
+  background: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: var(--radius-full);
+  color: #3c4043;
+  font-family: var(--font-family);
+  font-size: var(--text-body-l);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 150ms ease, box-shadow 150ms ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.login__google-btn:hover {
+  background: #f8f9fa;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+}
+
+.login__google-btn:focus-visible {
+  outline: 2px solid var(--color-primary-on);
+  outline-offset: 2px;
+}
+
+.login__google-logo {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.login__footer {
+  font-size: var(--text-label);
+  color: var(--color-on-surface-muted);
+  max-width: 280px;
+  line-height: 1.6;
+}
