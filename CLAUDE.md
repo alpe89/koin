@@ -64,6 +64,14 @@ The agent must NOT pick up the next issue on its own. After each completion repo
 
 Agents are always dispatched with a single issue. When the PM is ready for the next, they dispatch again.
 
+### Board status transitions (PM responsibility)
+
+| Moment | Action |
+|---|---|
+| PM dispatches an agent for an issue | Set issue → **In Progress** immediately |
+| Agent reports blocked | Set issue → **Blocked** |
+| Agent reports done, PM closes issue | Set issue → **Done** |
+
 ### Frontend implementation standard
 
 - **react-ts-engineer must follow the Stitch screens** for every UI feature before writing code.
