@@ -60,17 +60,23 @@ Every implementing agent (react-ts-engineer, nodejs-backend-engineer, software-a
 2. **On blocker** — stop and report: issue number, what is blocked, and why. Do not guess or invent a solution.
 3. **On completion** — report: issue number, what was built, and any deviations from the spec. Then **stop and wait**.
 
-The agent must NOT pick up the next issue on its own. After each completion report, the product-manager updates the GitHub issue and board, then explicitly dispatches the agent for the next issue.
+The agent must NOT pick up the next issue on its own. After each completion report, the **product-manager agent** handles everything: updates the GitHub issue, leaves a comment, moves the board status, and dispatches the engineer agent for the next issue.
 
-Agents are always dispatched with a single issue. When the PM is ready for the next, they dispatch again.
+Agents are always dispatched with a single issue. Only the product-manager agent triggers the next dispatch.
 
-### Board status transitions (PM responsibility)
+### Board status transitions (product-manager agent responsibility)
+
+The product-manager agent owns all board transitions using `gh project item-edit`:
 
 | Moment | Action |
 |---|---|
-| PM dispatches an agent for an issue | Set issue → **In Progress** immediately |
-| Agent reports blocked | Set issue → **Blocked** |
-| Agent reports done, PM closes issue | Set issue → **Done** |
+| product-manager dispatches an agent | Set issue → **In Progress** |
+| Agent reports blocked | Set issue → **Blocked**, leave comment explaining why |
+| Agent reports done | Close issue, set → **Done**, leave completion comment, dispatch next issue |
+
+- Board project IDs: Koin Board = `2`, Koin Roadmap = `3` (owner: `alpe89`)
+- Status field ID: `PVTSSF_lAHOAPYt6s4BTsbtzhA5qos`
+- Status option IDs: Todo = `f75ad846`, In Progress = `47fc9ee4`, Blocked = `9207e53d`, Done = `98236657`
 
 ### Frontend implementation standard
 
