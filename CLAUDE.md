@@ -34,7 +34,8 @@ All work is driven by GitHub issues on the Koin project board. Use the `gh` CLI 
 
 - **List issues:** `gh issue list --repo alpe89/koin --label <label>`
 - **Read an issue:** `gh issue view <number> --repo alpe89/koin`
-- **List project board:** `gh project item-list 3 --owner alpe89`
+- **Koin Board** (sprint board): `gh project item-list 2 --owner alpe89`
+- **Koin Roadmap** (milestone view): `gh project item-list 3 --owner alpe89`
 
 ### Issue assignment by agent
 
