@@ -2,6 +2,8 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./dist",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "paths": {
       "@koin/shared": ["../../packages/shared/src/index.ts"]
     }
