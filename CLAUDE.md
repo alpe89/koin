@@ -54,13 +54,15 @@ All work is driven by GitHub issues on the Koin project board. Use the `gh` CLI 
 
 ### Agent reporting checkpoints
 
-Every implementing agent (react-ts-engineer, nodejs-backend-engineer, software-architect, devops-shipping-engineer) **must report to the product-manager** at exactly three moments:
+Every implementing agent (react-ts-engineer, nodejs-backend-engineer, software-architect, devops-shipping-engineer) is dispatched **one issue at a time**. The agent must:
 
-1. **On pickup** — as soon as the agent starts working on an issue, report: issue number, title, and what it plans to do.
-2. **On blocker** — if the agent cannot proceed (missing info, dependency not ready, ambiguous spec), stop immediately and report: issue number, what is blocked, and why. Do not guess or invent solutions.
-3. **On completion** — when an issue is done, report: issue number, what was built, any deviations from the spec, and whether the next issue in the milestone can be picked up immediately.
+1. **On pickup** — report immediately: issue number, title, and plan.
+2. **On blocker** — stop and report: issue number, what is blocked, and why. Do not guess or invent a solution.
+3. **On completion** — report: issue number, what was built, and any deviations from the spec. Then **stop and wait**.
 
-The product-manager acts on each report by updating the GitHub issue and board accordingly. No agent should move to the next issue without sending a completion report first.
+The agent must NOT pick up the next issue on its own. After each completion report, the product-manager updates the GitHub issue and board, then explicitly dispatches the agent for the next issue.
+
+Agents are always dispatched with a single issue. When the PM is ready for the next, they dispatch again.
 
 ### Frontend implementation standard
 
@@ -68,6 +70,21 @@ The product-manager acts on each report by updating the GitHub issue and board a
 - Stitch project: https://stitch.withgoogle.com/projects/10845020093989134005
 - The implemented UI must match the Stitch screens closely enough for the **ux-design-reviewer** to review against them after implementation.
 - Do not invent UI patterns or layouts not present in Stitch.
+
+### Frontend stack
+
+| Concern | Library |
+|---|---|
+| Routing | TanStack Router (`@tanstack/react-router`) |
+| Data fetching / caching | TanStack Query (`@tanstack/react-query`) |
+| Styling | CSS Modules + BEM |
+| Component workshop | Storybook 10 (`bun run storybook`) |
+
+- **Every component must have a `.stories.tsx` file** — including small shared ones (buttons, inputs, modals, layout pieces). No exceptions.
+- Stories must cover all meaningful states: default, loading, error, empty, and role variants where relevant.
+- Storybook is the primary tool for component testing and design review. The ux-design-reviewer uses it to review the design system.
+- Storybook runs on `localhost:6006` via `bun run storybook` in `apps/web`.
+- No React Router, no SWR, no Axios — use the libraries above.
 
 ## Decision Documentation
 
